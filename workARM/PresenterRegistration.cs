@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace workARM
 {
-     class PresenterRegistration
+    class  PresenterRegistration
     {
-        public string Login { get; set; } = "1235";
-        public string Password { get; set; } = "1235";
+        public static string Login { get; set; } = "";
+        public static string Password { get; set; } = "";
 
     }
 }

@@ -50,7 +50,7 @@ namespace workARM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var PresenterRegistration = new PresenterRegistration();
+            //var PresenterRegistration = new PresenterRegistration();
 
             string Login = textBox1.Text;
 
@@ -60,9 +60,10 @@ namespace workARM
 
             PresenterRegistration.Password = textBox2.Text;
 
-            var JasonFile = new JasonFile();
-            string objectSerialized = JsonSerializer.Serialize(PresenterRegistration);
-            File.WriteAllText("Register.json", objectSerialized);
+            
+            MessageBox.Show("Ваш Логин "+PresenterRegistration.Login  +"\n ваш пароль " +PresenterRegistration.Password , "Вы зарегестрированны");
+
+
             JasonFile.SaveRegister();
         }
 
@@ -70,6 +71,13 @@ namespace workARM
         {
             var PresenterRegistration = new PresenterRegistration();
             MessageBox.Show(PresenterRegistration.Password);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 Form1 = new Form1();
+            Form1.Show();
         }
     }
 }

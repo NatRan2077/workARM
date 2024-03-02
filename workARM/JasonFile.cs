@@ -9,9 +9,9 @@ using System.Text.Json;
 
 namespace workARM
 {
-    public class JasonFile
+    public static class JasonFile 
     {
-        public void SaveRegister()
+        public static void SaveRegister()
         {
             var PresenterRegistration = new PresenterRegistration();
 

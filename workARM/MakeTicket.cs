@@ -10,16 +10,19 @@ using System.Windows.Forms;
 
 namespace workARM
 {
-    public partial class mainForm : Form
+    public partial class MakeTicket : Form
     {
-        public mainForm()
+        public MakeTicket()
         {
             InitializeComponent();
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Создана успешно","Заявка");
+            this.Close();
+            mainForm1 mainForm1 = new mainForm1();
+            mainForm1.Show();
         }
     }
 }
