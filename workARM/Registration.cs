@@ -50,7 +50,7 @@ namespace workARM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //var PresenterRegistration = new PresenterRegistration();
+            var PresenterRegistration = new PresenterRegistration();
 
             string Login = textBox1.Text;
 
@@ -60,8 +60,8 @@ namespace workARM
 
             PresenterRegistration.Password = textBox2.Text;
 
-            
-            MessageBox.Show("Ваш Логин "+PresenterRegistration.Login  +"\n ваш пароль " +PresenterRegistration.Password , "Вы зарегестрированны");
+
+            MessageBox.Show("Ваш Логин " + PresenterRegistration.Login + "\n ваш пароль " + PresenterRegistration.Password, "Вы зарегестрированны");
 
 
             JasonFile.SaveRegister();

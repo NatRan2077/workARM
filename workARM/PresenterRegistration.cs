@@ -8,8 +8,8 @@ namespace workARM
 {
     class  PresenterRegistration
     {
-        public static string Login { get; set; } = "";
-        public static string Password { get; set; } = "";
+        public  string Login { get; set; }
+        public  string Password { get; set; } 
 
     }
 }
