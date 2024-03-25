@@ -8,9 +8,9 @@ using Newtonsoft.Json;
 
 namespace workARM
 {
-    internal class MainLogicRegistration : PresenterRegistration
+     public class MainLogicRegistration   
     {
-        static void Register(string login, string password)
+        public void Register(string Login, string Password)
         {
             if (!File.Exists("User.json"))
             {
@@ -20,16 +20,21 @@ namespace workARM
 
             List<PresenterRegistration> user = JsonConvert.DeserializeObject<List<PresenterRegistration>>(jasonData) ?? new List<PresenterRegistration>();
 
-            if (user.Exists(u => u.Login == login)) 
+            if (user.Exists(u => u.Login == Login)) 
             {
                 //exeption логин уже есть
+                MessageBox.Show("Такой логин уже существует");
                 return;
             }
-            PresenterRegistration newUser = new PresenterRegistration { Login = login, Password = password };
+            PresenterRegistration newUser = new PresenterRegistration { Login = Login, Password = Password };
             user.Add(newUser);
 
             string updatejsonData = JsonConvert.SerializeObject(user, Formatting.Indented);
             File.WriteAllText("User.Json", updatejsonData);
+
+            MessageBox.Show("Вы успешно зарегистрировались");
         }
+
+
     }
 }

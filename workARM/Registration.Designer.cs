@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            Login = new TextBox();
+            Password = new TextBox();
             label1 = new Label();
             label2 = new Label();
             button1 = new Button();
             button2 = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // Login
             // 
-            textBox1.Location = new Point(160, 60);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(121, 27);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
+            Login.Location = new Point(160, 60);
+            Login.Margin = new Padding(2);
+            Login.Name = "Login";
+            Login.Size = new Size(121, 27);
+            Login.TabIndex = 0;
+            Login.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // Password
             // 
-            textBox2.Location = new Point(160, 121);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(121, 27);
-            textBox2.TabIndex = 1;
-            textBox2.TextChanged += textBox2_TextChanged;
+            Password.Location = new Point(160, 121);
+            Password.Margin = new Padding(2);
+            Password.Name = "Password";
+            Password.Size = new Size(121, 27);
+            Password.TabIndex = 1;
+            Password.TextChanged += textBox2_TextChanged;
             // 
             // label1
             // 
@@ -79,7 +79,7 @@
             // button1
             // 
             button1.Location = new Point(160, 170);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(120, 27);
             button1.TabIndex = 4;
@@ -90,7 +90,7 @@
             // button2
             // 
             button2.Location = new Point(160, 202);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(90, 27);
             button2.TabIndex = 5;
@@ -107,9 +107,9 @@
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Margin = new Padding(2, 2, 2, 2);
+            Controls.Add(Password);
+            Controls.Add(Login);
+            Margin = new Padding(2);
             Name = "Registration";
             Text = "Registration";
             Load += Registration_Load;
@@ -119,8 +119,8 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox Login;
+        private TextBox Password;
         private Label label1;
         private Label label2;
         private Button button1;

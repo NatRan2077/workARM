@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace workARM
 {
@@ -36,32 +37,35 @@ namespace workARM
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             var PresenterRegistration = new PresenterRegistration();
-            string Login = textBox1.Text;
-            PresenterRegistration.Login = textBox1.Text;
+            string Login = this.Login.Text;
+            PresenterRegistration.Login = this.Login.Text;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             var PresenterRegistration = new PresenterRegistration();
-            string Password = textBox2.Text;
+            string Password = this.Password.Text;
 
-            PresenterRegistration.Password = textBox2.Text;
+            PresenterRegistration.Password = this.Password.Text;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var PresenterRegistration = new PresenterRegistration();
 
-            string Login = textBox1.Text;
+            string Login = this.Login.Text;
 
-            PresenterRegistration.Login = textBox1.Text;
+            PresenterRegistration.Login = this.Login.Text;
 
-            string Password = textBox2.Text;
+            string Password = this.Password.Text;
 
-            PresenterRegistration.Password = textBox2.Text;
+            PresenterRegistration.Password = this.Password.Text;
 
+            var MainLogicRegistration = new MainLogicRegistration();
 
-            MessageBox.Show("Ваш Логин " + PresenterRegistration.Login + "\n ваш пароль " + PresenterRegistration.Password, "Вы зарегестрированны");
+            MainLogicRegistration.Register( Login, Password);
+
+           //MessageBox.Show("Ваш Логин " + PresenterRegistration.Login + "\n ваш пароль " + PresenterRegistration.Password, "Вы зарегестрированны");
 
 
             JasonFile.SaveRegister();
