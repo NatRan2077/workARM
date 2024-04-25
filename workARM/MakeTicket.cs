@@ -29,5 +29,12 @@ namespace workARM
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            mainForm1 mainForm1 = new mainForm1();
+            mainForm1.Show();
+        }
     }
 }

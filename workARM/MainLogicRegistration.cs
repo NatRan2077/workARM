@@ -39,17 +39,19 @@ namespace workARM
                 {
                     mainForm1 mainForm = new mainForm1();
                     mainForm.Show();
+                    
                 }
                 else
                 {
                     MessageBox.Show("Не верный пароль или логин");
-                    return;
+                  
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Произошла ошибка: " + ex.Message);
             }
+            
         }
         public void AddUserToJson(string filePath, string login, string password)
         {

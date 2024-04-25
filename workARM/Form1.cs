@@ -21,7 +21,7 @@ namespace workARM
             var MainLogicRegistration = new MainLogicRegistration();
             MainLogicRegistration.CheckCredentials(filePath, Login, Password);
 
-            this.Hide();
+            //this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
