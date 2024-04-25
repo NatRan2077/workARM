@@ -19,10 +19,15 @@ namespace workARM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Создана успешно","Заявка");
+            MessageBox.Show("Создана успешно", "Заявка");
             this.Close();
             mainForm1 mainForm1 = new mainForm1();
             mainForm1.Show();
+        }
+
+        private void MakeTicket_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

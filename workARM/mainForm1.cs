@@ -23,5 +23,10 @@ namespace workARM
             MakeTicket MakeTicket = new MakeTicket();
             MakeTicket.Show();
         }
+
+        private void mainForm1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

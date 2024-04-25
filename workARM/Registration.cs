@@ -54,19 +54,14 @@ namespace workARM
             var PresenterRegistration = new PresenterRegistration();
 
             string Login = this.Login.Text;
-
             PresenterRegistration.Login = this.Login.Text;
-
             string Password = this.Password.Text;
-
             PresenterRegistration.Password = this.Password.Text;
 
+            string filePath = "Users2.json";
             var MainLogicRegistration = new MainLogicRegistration();
 
-            MainLogicRegistration.Register( Login, Password);
-
-           //MessageBox.Show("Ваш Логин " + PresenterRegistration.Login + "\n ваш пароль " + PresenterRegistration.Password, "Вы зарегестрированны");
-
+            MainLogicRegistration.AddUserToJson(filePath, Login, Password);
 
             JasonFile.SaveRegister();
         }

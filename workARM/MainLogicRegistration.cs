@@ -5,36 +5,94 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace workARM
 {
-     public class MainLogicRegistration   
+    public class MainLogicRegistration
     {
-        public void Register(string Login, string Password)
+       
+        public void CheckCredentials(string filePath, string Login, string Password)
         {
-            if (!File.Exists("User.json"))
+            try
             {
-                File.Create("User.json").Close();
+                // Проверяем существование файла
+                if (!File.Exists(filePath))
+                {
+                    Console.WriteLine("Файл не найден.");
+                    return;
+                }
+
+                // Открываем файл и считываем его содержимое
+                string jsonContent = File.ReadAllText(filePath);
+
+                // Разбираем JSON содержимое
+                JObject jsonData = JObject.Parse(jsonContent);
+
+                // Получаем данные из файла
+                string fileLogin = jsonData["Login"]?.ToString();
+                string filePassword = jsonData["Password"]?.ToString();
+
+
+                // Проверяем совпадение данных
+                if (Login == fileLogin && Password == filePassword)
+                {
+                    mainForm1 mainForm = new mainForm1();
+                    mainForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Не верный пароль или логин");
+                    return;
+                }
             }
-            string jasonData = File.ReadAllText("User.json");
-
-            List<PresenterRegistration> user = JsonConvert.DeserializeObject<List<PresenterRegistration>>(jasonData) ?? new List<PresenterRegistration>();
-
-            if (user.Exists(u => u.Login == Login)) 
+            catch (Exception ex)
             {
-                //exeption логин уже есть
-                MessageBox.Show("Такой логин уже существует");
-                return;
+                MessageBox.Show("Произошла ошибка: " + ex.Message);
             }
-            PresenterRegistration newUser = new PresenterRegistration { Login = Login, Password = Password };
-            user.Add(newUser);
-
-            string updatejsonData = JsonConvert.SerializeObject(user, Formatting.Indented);
-            File.WriteAllText("User.Json", updatejsonData);
-
-            MessageBox.Show("Вы успешно зарегистрировались");
         }
+        public void AddUserToJson(string filePath, string login, string password)
+        {
+            try
+            {
+                JObject jsonData;
+
+                // Проверяем существование файла
+                if (File.Exists(filePath))
+                {
+                    // Если файл существует, считываем его содержимое
+                    string jsonContent = File.ReadAllText(filePath);
+                    jsonData = JObject.Parse(jsonContent);
+
+                    // Проверяем, существует ли уже такой логин
+                    if (jsonData[login] != null)
+                    {
+                        MessageBox.Show("Такой логин уже существует");
+                        return;
+                    }
+                }
+                else
+                {
+                    // Если файл не существует, создаем новый объект JSON
+                    jsonData = new JObject();
+                }
+
+                // Добавляем логин и пароль в JSON объект
+                jsonData["Login"] = login;
+                jsonData["Password"] = password;
 
 
+
+                // Записываем обновленные данные в файл
+                File.WriteAllText(filePath, jsonData.ToString());
+
+                MessageBox.Show("Регистрация успешна");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка: " + ex.Message);
+                
+            }
+        }
     }
 }
