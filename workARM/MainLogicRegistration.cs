@@ -17,19 +17,18 @@ namespace workARM
         {
             try
             {
-                // Проверяем существование файла
+                
                 if (!File.Exists(filePath))
                 {
                     Console.WriteLine("Файл не найден");
                     return false;
                 }
 
-                // Считываем содержимое файла и десериализуем его в список пользователей
+                
                 string jsonContent = File.ReadAllText(filePath);
                 List<PresenterRegistration> users = JsonConvert.DeserializeObject<List<PresenterRegistration>>(jsonContent);
 
-                // Проверяем наличие пользователя с заданным логином и паролем
-                if (users.Exists(u => u.Login == login && u.Password == password))
+                if (users.Exists(u => u.Login == login && u.Password == password && u.Login.Length != 0 && u.Password.Length != 0))
                 {
                     mainForm1 mainForm = new mainForm1();
                     mainForm.Show();
@@ -54,30 +53,30 @@ namespace workARM
             {
                 List<PresenterRegistration> users;
 
-                // Проверяем существование файла
+                
                 if (File.Exists(filePath))
                 {
-                    // Если файл существует, считываем его содержимое
+                 
                     string jsonContent = File.ReadAllText(filePath);
                     users = JsonConvert.DeserializeObject<List<PresenterRegistration>>(jsonContent);
 
-                    // Проверяем, существует ли уже такой логин
-                    if (users.Exists(u => u.Login == login && login != null))
+                    
+                    if (users.Exists(u => u.Login == login && u.Login.Length == 0))
                     {
-                        MessageBox.Show("Такой логин уже существует");
-                        return;
+                        MessageBox.Show("Ошибка");
+                       
                     }
                 }
                 else
                 {
-                    // Если файл не существует, создаем новый список пользователей
+                  
                     users = new List<PresenterRegistration>();
                 }
 
-                // Добавляем нового пользователя в список
+               
                 users.Add(new PresenterRegistration { Login = login, Password = password });
 
-                // Записываем обновленные данные в файл
+                
                 string jsonData = JsonConvert.SerializeObject(users);
                 File.WriteAllText(filePath, jsonData);
 

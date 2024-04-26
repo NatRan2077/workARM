@@ -51,14 +51,14 @@ namespace workARM
         {
             try
             {
-                // Проверяем существование файла
+                
                 if (!File.Exists(filePath))
                 {
                     Console.WriteLine("Файл не найден");
                     return new List<MakeTicketLogic>();
                 }
 
-                // Считываем содержимое файла и десериализуем его в список заявок
+               
                 string jsonContent = File.ReadAllText(filePath);
                 List<MakeTicketLogic> tickets = JsonConvert.DeserializeObject<List<MakeTicketLogic>>(jsonContent);
 

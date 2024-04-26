@@ -60,9 +60,9 @@
             label1.Location = new Point(160, 38);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(46, 20);
+            label1.Size = new Size(52, 20);
             label1.TabIndex = 2;
-            label1.Text = "Login";
+            label1.Text = "Логин";
             label1.Click += label1_Click;
             // 
             // label2
@@ -71,9 +71,9 @@
             label2.Location = new Point(160, 98);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(70, 20);
+            label2.Size = new Size(62, 20);
             label2.TabIndex = 3;
-            label2.Text = "Password";
+            label2.Text = "Пароль";
             label2.Click += label2_Click;
             // 
             // button1

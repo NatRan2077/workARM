@@ -49,7 +49,7 @@ namespace workARM
 
             mainForm1 mainForm1 = new mainForm1();
             mainForm1.Show();
-            
+            this.Close();
         }
 
         private void MakeTicket_Load(object sender, EventArgs e)

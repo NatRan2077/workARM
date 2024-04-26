@@ -20,11 +20,12 @@ namespace workARM
 
             var MainLogicRegistration = new MainLogicRegistration();
 
-            if (MainLogicRegistration.CheckCredentials(filePath, Login, Password) == true) 
+            if (MainLogicRegistration.CheckCredentials(filePath, Login, Password) == true)
             {
                 this.Hide();
             }
-            else { 
+            else
+            {
                 return;
             }
         }
@@ -42,6 +43,11 @@ namespace workARM
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

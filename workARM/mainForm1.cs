@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,10 +47,10 @@ namespace workARM
             listView1.Items.Clear();
             foreach (var ticket in tickets)
             {
-                //listView1.Items.Add(ticket.Name.ToString);
+                
                 ListViewItem Item = new ListViewItem(ticket.Name);
 
-                //listView1.Items[lineIndex].SubItems.Add(ticket.Name.ToString());
+               
                 Item.SubItems.Add(ticket.LastName.ToString());
                 Item.SubItems.Add(ticket.PhoneNumber.ToString());
                 Item.SubItems.Add(ticket.Post.ToString());
@@ -63,33 +65,74 @@ namespace workARM
         private void button3_Click(object sender, EventArgs e)
         {
             DeleteSelectedItems();
+            //RemoveTicketFromJson();
         }
         private void DeleteSelectedItems()
         {
+            string filePath = "tickets.json";
             List<MakeTicketLogic> tickets = TicketRepository.GetTicketsFromJson("tickets.json");
-            // Проверяем, есть ли выбранные элементы в ListView
+            
             if (listView1.SelectedItems.Count > 0)
             {
-                // Получаем индексы выбранных элементов в обратном порядке
+               
                 List<int> indexesToRemove = new List<int>();
                 foreach (ListViewItem item in listView1.SelectedItems)
                 {
                     indexesToRemove.Add(item.Index);
                 }
-                indexesToRemove.Reverse(); // Обратный порядок для правильного удаления элементов
+                indexesToRemove.Reverse(); 
 
-                // Удаляем выбранные элементы из списка Vive
+                
                 foreach (int index in indexesToRemove)
                 {
                     tickets.RemoveAt(index);
                 }
 
-                // Удаляем выбранные элементы из ListView
+               
                 foreach (int index in indexesToRemove)
                 {
                     listView1.Items.RemoveAt(index);
                 }
             }
         }
+            //private void RemoveTicketFromJson(string filePath, int index)
+            //{
+            //    try
+            //    {
+            //        // Проверяем существование файла
+            //        if (!File.Exists(filePath))
+            //        {
+            //            Console.WriteLine("Файл не найден");
+            //            return;
+            //        }
+
+            //        // Считываем содержимое файла и десериализуем его в список заявок
+            //        string jsonContent = File.ReadAllText(filePath);
+            //        List<MakeTicketLogic> tickets = JsonConvert.DeserializeObject<List<MakeTicketLogic>>(jsonContent);
+
+            //        // Удаляем заявку с указанным индексом из списка
+            //        if (index >= 0 && index < tickets.Count)
+            //        {
+            //            tickets.RemoveAt(index);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Индекс выходит за границы списка");
+            //            return;
+            //        }
+
+            //        // Записываем обновленные данные в файл
+            //        string updatedJsonData = JsonConvert.SerializeObject(tickets);
+            //        File.WriteAllText(filePath, updatedJsonData);
+
+            //        Console.WriteLine("Заявка удалена успешно из JSON файла");
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine("Произошла ошибка при удалении заявки из JSON файла: " + ex.Message);
+            //    }
+            //}
+        
     }
+
 }
