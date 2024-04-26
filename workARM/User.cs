@@ -6,18 +6,9 @@ using System.Threading.Tasks;
 
 namespace workARM
 {
-    public class LogicRegister
+    internal interface User
     {
-        public int Id { get; set; }
         public string Login { get; set; }
-
         public string Password { get; set; }
-
-        public LogicRegister(int id, string login, string password)
-        {
-            Id = id;
-            Login = login;
-            Password = password;
-        }
     }
 }

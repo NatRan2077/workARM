@@ -58,8 +58,12 @@ namespace workARM
             string Password = this.Password.Text;
             PresenterRegistration.Password = this.Password.Text;
 
+            
+
             string filePath = "Users2.json";
             var MainLogicRegistration = new MainLogicRegistration();
+
+           
 
             MainLogicRegistration.AddUserToJson(filePath, Login, Password);
 

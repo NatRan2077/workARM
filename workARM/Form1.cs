@@ -19,9 +19,14 @@ namespace workARM
             string filePath = "Users2.json";
 
             var MainLogicRegistration = new MainLogicRegistration();
-            MainLogicRegistration.CheckCredentials(filePath, Login, Password);
 
-            //this.Hide();
+            if (MainLogicRegistration.CheckCredentials(filePath, Login, Password) == true) 
+            {
+                this.Hide();
+            }
+            else { 
+                return;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

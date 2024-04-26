@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,10 +20,36 @@ namespace workARM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Создана успешно", "Заявка");
-            this.Close();
+         
+
+           var MakeTicketLogic = new MakeTicketLogic();
+            string Name = this.Name.Text;
+            MakeTicketLogic.Name = this.Name.Text;
+            string LastName = this.LastName.Text;
+            MakeTicketLogic.LastName = this.LastName.Text;
+            string PhoneNumber = this.PhoneNumber.Text;
+            MakeTicketLogic.PhoneNumber = this.PhoneNumber.Text;
+            string Post = this.Post.Text;
+            MakeTicketLogic.Post = this.Post.Text;
+            string Model = this.Model.Text;
+            MakeTicketLogic.Model = this.Model.Text;
+            string Breaking = this.Breaking.Text;
+            MakeTicketLogic.Breaking = this.Breaking.Text;
+
+            //AddTicketToJson
+            string filePath = "Tickets.json";
+
+           
+            var TicketRepository = new TicketRepository();
+
+            TicketRepository.AddTicketToJson(filePath, Name, LastName, PhoneNumber, Post, Model, Breaking);
+
+            JasonFile.SaveRegister();
+            TicketRepository.GetTicketsFromJson(filePath);
+
             mainForm1 mainForm1 = new mainForm1();
             mainForm1.Show();
+            
         }
 
         private void MakeTicket_Load(object sender, EventArgs e)

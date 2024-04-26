@@ -2,6 +2,8 @@
 {
     partial class MakeTicket
     {
+        private const string V = "MakeTicket";
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,12 +30,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            Name = new TextBox();
+            LastName = new TextBox();
+            PhoneNumber = new TextBox();
+            Post = new TextBox();
+            Model = new TextBox();
+            Breaking = new TextBox();
             button1 = new Button();
             label1 = new Label();
             label2 = new Label();
@@ -44,53 +46,53 @@
             button2 = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // Name
             // 
-            textBox1.Location = new Point(10, 23);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(167, 27);
-            textBox1.TabIndex = 0;
+            Name.Location = new Point(10, 23);
+            Name.Margin = new Padding(2);
+            Name.Name = "Name";
+            Name.Size = new Size(167, 27);
+            Name.TabIndex = 0;
             // 
-            // textBox2
+            // LastName
             // 
-            textBox2.Location = new Point(10, 69);
-            textBox2.Margin = new Padding(2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(167, 27);
-            textBox2.TabIndex = 1;
+            LastName.Location = new Point(10, 69);
+            LastName.Margin = new Padding(2);
+            LastName.Name = "LastName";
+            LastName.Size = new Size(167, 27);
+            LastName.TabIndex = 1;
             // 
-            // textBox3
+            // PhoneNumber
             // 
-            textBox3.Location = new Point(10, 117);
-            textBox3.Margin = new Padding(2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(167, 27);
-            textBox3.TabIndex = 2;
+            PhoneNumber.Location = new Point(10, 117);
+            PhoneNumber.Margin = new Padding(2);
+            PhoneNumber.Name = "PhoneNumber";
+            PhoneNumber.Size = new Size(167, 27);
+            PhoneNumber.TabIndex = 2;
             // 
-            // textBox4
+            // Post
             // 
-            textBox4.Location = new Point(10, 169);
-            textBox4.Margin = new Padding(2);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(167, 27);
-            textBox4.TabIndex = 3;
+            Post.Location = new Point(10, 169);
+            Post.Margin = new Padding(2);
+            Post.Name = "Post";
+            Post.Size = new Size(167, 27);
+            Post.TabIndex = 3;
             // 
-            // textBox5
+            // Model
             // 
-            textBox5.Location = new Point(10, 218);
-            textBox5.Margin = new Padding(2);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(167, 27);
-            textBox5.TabIndex = 4;
+            Model.Location = new Point(10, 218);
+            Model.Margin = new Padding(2);
+            Model.Name = "Model";
+            Model.Size = new Size(167, 27);
+            Model.TabIndex = 4;
             // 
-            // textBox6
+            // Breaking
             // 
-            textBox6.Location = new Point(10, 268);
-            textBox6.Margin = new Padding(2);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(167, 27);
-            textBox6.TabIndex = 5;
+            Breaking.Location = new Point(10, 268);
+            Breaking.Margin = new Padding(2);
+            Breaking.Name = "Breaking";
+            Breaking.Size = new Size(167, 27);
+            Breaking.TabIndex = 5;
             // 
             // button1
             // 
@@ -159,9 +161,9 @@
             label6.Location = new Point(10, 246);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(70, 20);
+            label6.Size = new Size(72, 20);
             label6.TabIndex = 13;
-            label6.Text = "поломка";
+            label6.Text = "Поломка";
             // 
             // button2
             // 
@@ -187,14 +189,14 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button1);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(Breaking);
+            Controls.Add(Model);
+            Controls.Add(Post);
+            Controls.Add(PhoneNumber);
+            Controls.Add(LastName);
+            Controls.Add(Name);
             Margin = new Padding(2);
-            Name = "MakeTicket";
+            //Name = "MakeTicket";
             Text = "MakeTicket";
             Load += MakeTicket_Load;
             ResumeLayout(false);
@@ -203,12 +205,12 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox Name;
+        private TextBox LastName;
+        private TextBox PhoneNumber;
+        private TextBox Post;
+        private TextBox Model;
+        private TextBox Breaking;
         private Button button1;
         private Label label1;
         private Label label2;

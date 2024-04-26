@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace workARM
 {
-     class  PresenterRegistration 
+     class  PresenterRegistration : User
     {
         public string Login { get; set; } 
         public string Password { get; set; }
